@@ -1,29 +1,61 @@
-
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { AppBar, Container, Toolbar, Typography } from "@mui/material";
+import Home from "./Home";
+import Settings from "./Settings";
 import {
   Drawer,
   Box,
-  Typography,
   IconButton,
   MenuItem,
   ListItem,
   ListItemIcon,
-} from "@mui/material";/*
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+} from "@mui/material";
 import { TfiAlignJustify } from "react-icons/tfi";
-import HomePage from "./Home";
-import Settings from "./Settings";
-import { useState } from "react";
+import { homeContainer, textStyleColor } from "../style";
 
-interface MuiDrawerProps {
-  isDarkMode: boolean;
-}
 
-const MuiDrawer: React.FC<MuiDrawerProps> = ({ isDarkMode }) => {
-    
-return(
 
-);
-}
+
+
+const MuiDrawer: React.FC = () => {
+  const [isDrwaerOpen, setIsDrwerOpen] = useState(false);
+
+
+  return (
+    <Container sx={homeContainer}>
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="logo"
+        onClick={() => setIsDrwerOpen(true)}
+      >
+        <TfiAlignJustify />
+      </IconButton>
+
+      <Drawer
+        anchor="right"
+        open={isDrwaerOpen}
+        onClose={() => setIsDrwerOpen(false)}
+      >
+        <Box
+          p={2}
+          width="250px"
+          textAlign="center"
+          role="presentation"
+          sx={homeContainer}
+        >
+          <Container sx={textStyleColor}>
+            <Link to="/">Dashboard</Link>
+          </Container>
+          <Container sx={textStyleColor}>
+            <Link to="/Setting">Settings</Link>
+          </Container>
+        </Box>
+      </Drawer>
+    </Container>
+  );
+};
+
 export default MuiDrawer;
-
-*/

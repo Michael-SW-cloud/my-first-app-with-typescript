@@ -11,15 +11,13 @@ const Textfield: React.FC<TextFieldProps> = (props) => {
   //const classes = useStyles();
   console.log(props.props);
   return (
-    <Container className="div-field-text">
+    <>
       <TextField
-        disabled
-        id="filled-disabled"
         className="field-text"
         value={props.props}
         sx={textStyleColor}
       />
-    </Container>
+    </>
   );
 };
 export default Textfield;

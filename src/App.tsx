@@ -6,36 +6,37 @@ import { ThemeProvider } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "./theme";
 import Settings from "./components/Settings";
 import Home from "./components/Home";
-import {
-  Drawer,
-  Box,
-  Typography,
-  IconButton,
-  MenuItem,
-  ListItem,
-  ListItemIcon,
-} from "@mui/material";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { TfiAlignJustify } from "react-icons/tfi";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MuiDrawer from "./components/MuiDrwer";
 
 
-function App() {
+const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isDrwaerOpen, setIsDrwerOpen] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
   const theme = isDarkMode ? darkTheme : lightTheme;
+ 
+
   return (
-    <ThemeProvider theme={theme}>
-      <Container>
-        <Settings toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-        <Home isDarkMode={isDarkMode} />
-      </Container>
-     
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <MuiDrawer  />
+
+        <Routes>
+          <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
+
+          <Route
+            path="/Setting"
+            element={
+              <Settings toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+            }
+          ></Route>
+        </Routes>
+      </ThemeProvider>
+    </Router>
   );
-}
+};
 
 export default App;
