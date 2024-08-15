@@ -8,6 +8,7 @@ import Settings from "./components/Settings";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MuiDrawer from "./components/MuiDrwer";
+import { homeContainer } from "./style";
 
 
 const App: React.FC = () => {
@@ -20,22 +21,24 @@ const App: React.FC = () => {
  
 
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <MuiDrawer  />
+    
+      <Router>
+        <ThemeProvider theme={theme}>
+          <MuiDrawer />
 
-        <Routes>
-          <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
+          <Routes>
+            <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
 
-          <Route
-            path="/Setting"
-            element={
-              <Settings toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-            }
-          ></Route>
-        </Routes>
-      </ThemeProvider>
-    </Router>
+            <Route
+              path="/Setting"
+              element={
+                <Settings toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+              }
+            ></Route>
+          </Routes>
+        </ThemeProvider>
+      </Router>
+   
   );
 };
 

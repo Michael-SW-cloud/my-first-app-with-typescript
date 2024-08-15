@@ -39,12 +39,9 @@ const MuiDrawer: React.FC = () => {
         open={isDrwaerOpen}
         onClose={() => setIsDrwerOpen(false)}
       >
-        <Box
-          p={2}
-          width="250px"
-          textAlign="center"
-          role="presentation"
-          sx={homeContainer}
+        <Container
+          
+          
         >
           <Container sx={textStyleColor}>
             <Link to="/">Dashboard</Link>
@@ -52,7 +49,7 @@ const MuiDrawer: React.FC = () => {
           <Container sx={textStyleColor}>
             <Link to="/Setting">Settings</Link>
           </Container>
-        </Box>
+        </Container>
       </Drawer>
     </Container>
   );

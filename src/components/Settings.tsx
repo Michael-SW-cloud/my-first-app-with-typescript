@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Container } from "@mui/material";
+import { homeContainer } from "../style";
 
 interface SettingsProps {
   toggleTheme: () => void;
@@ -8,7 +9,7 @@ interface SettingsProps {
 
 const Settings: React.FC<SettingsProps> = ({ toggleTheme, isDarkMode }) => {
   return (
-    <Container>
+    <Container sx={homeContainer}>
       <Button variant="contained" color="primary" onClick={toggleTheme}>
         Switch to {isDarkMode ? "Light" : "Dark"} Theme
       </Button>
