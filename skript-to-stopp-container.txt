@@ -1,7 +1,7 @@
 Bash skript zum stoppen Docker container 
 
-
-
+#skript öffnen:
+Nano  stop_docker_container.sh
 
 CONTAINER_NAME=„great_swirles“
 
