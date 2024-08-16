@@ -1,18 +1,20 @@
+#!/bin/bash
 
 
-# Name des Containers, der gestoppt werden soll
-CONTAINER_NAME="great_swirles"
+# Name of the container to be stopped
+CONTAINER_NAME="eager_allen"
 
-# Überprüfen, ob der Container läuft
+# Check if the container is running
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
-    echo "Stoppe Container $CONTAINER_NAME..."
+# Container is running, so stop it
+    echo "Stopping container $CONTAINER_NAME..."
     docker stop $CONTAINER_NAME
     if [ $? -eq 0 ]; then
-        echo "Container $CONTAINER_NAME wurde erfolgreich gestoppt."
+        echo "Container $CONTAINER_NAME was successfully stopped."
     else
-        echo "Fehler beim Stoppen des Containers $CONTAINER_NAME."
+        echo "Error stopping container $CONTAINER_NAME."
     fi
 else
-    echo "Container $CONTAINER_NAME läuft nicht oder existiert nicht."
+    echo "Container $CONTAINER_NAME is not running or does not exist."
 fi
 
