@@ -1,13 +1,4 @@
-Bash skript zum stoppen Docker container 
 
-#skript öffnen:
-Nano  stop_docker_container.sh
-
-CONTAINER_NAME=„great_swirles“
-
-
-
-#!/bin/bash
 
 # Name des Containers, der gestoppt werden soll
 CONTAINER_NAME="great_swirles"
@@ -25,11 +16,3 @@ else
     echo "Container $CONTAINER_NAME läuft nicht oder existiert nicht."
 fi
 
-
-Skript ausführbar machen:
-
-chmod +x stop_docker_container.sh
-
-Skript ausführen:
-
-./stop_docker_container.sh

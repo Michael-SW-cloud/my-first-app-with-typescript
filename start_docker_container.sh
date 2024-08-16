@@ -1,7 +1,4 @@
-#skript öffnen:
-nano start_docker_container.sh
 
-#!/bin/bash
 
 # Name des Containers, den gestartet soll:
 CONTAINER_NAME=„great_swirles“ 
