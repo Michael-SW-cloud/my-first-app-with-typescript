@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Name des Containers, den gestartet soll:
+CONTAINER_NAME=„great_swirles“ 
+
+# Überprüfen, ob der Container existiert
+if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ]; then
+    # Überprüfen, ob der Container bereits läuft
+    if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+        echo "Container $CONTAINER_NAME läuft bereits."
+    else
+        echo "Starte Container $CONTAINER_NAME..."
+        docker start $CONTAINER_NAME
+
+        if [ $? -eq 0 ]; then
+            echo "Container $CONTAINER_NAME wurde erfolgreich gestartet."
+        else
+            echo "Fehler beim Starten des Containers $CONTAINER_NAME."
+        fi
+    fi
+else
+    echo "Container $CONTAINER_NAME existiert nicht. Erstelle und starte den Container..."
+    docker run -d --name $CONTAINER_NAME my-webapp
+
+    if [ $? -eq 0 ]; then
+        echo "Container $CONTAINER_NAME wurde erfolgreich erstellt und gestartet."
+    else
+        echo "Fehler beim Erstellen und Starten des Containers $CONTAINER_NAME."
+    fi
+fi
