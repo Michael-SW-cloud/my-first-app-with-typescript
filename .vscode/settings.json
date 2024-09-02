@@ -1,0 +1,9 @@
+{
+  "editor.tabSize": 4,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "git.ignoreLimitWarning": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
